@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="student_action" model="ir.actions.act_window">
+        <field name="name">List students</field>
+        <field name="res_model">student.m.m</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Student" id="student_base_menu" sequence="1" action="student_action"/>
+    <record id="student_form_view" model="ir.ui.view">
+        <field name="name">Student Form</field>
+        <field name="model">student.m.m</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="age"/>
+                        <field name="sex"/>
+                        <field name="address"/>
+                        <field name="date_birth"/>
+                        <field name="number_phone"/>
+                    </group>
+                    <group>
+                        <field name="face_student" widget='image'/>
+                        <field name="level"/>
+                        <field name="subjects_were_register"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Tree View -->
+    <record id="student_view_tree" model="ir.ui.view">
+        <field name="name">Student Tree</field>
+        <field name="model">student.m.m</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" optional="show"/>
+                <field name="age" optional="show"/>
+                <field name="address" optional="show"/>
+                <field name="date_birth" optional="hide"/>
+                <field name="number_phone" optional="hide"/>
+                <field name="face_student" optional="hide" widget='image'/>
+                <field name="level" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+    <!--Search-->
+    <record id="student_view_search" model="ir.ui.view">
+        <field name="name">Student Search</field>
+        <field name="model">student.m.m</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="number_phone"/>
+            </search>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="subject_action" model="ir.actions.act_window">
+        <field name="name">List subject</field>
+        <field name="res_model">subject.m.m</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Subject" id="subject_id" parent="student_base_menu" action="subject_action"/>
+    <record id="subject_view_form" model="ir.ui.view">
+        <field name="name">Subject Form</field>
+        <field name="model">subject.m.m</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="date_create"/>
+                        <field name="author_ids"/>
+                        <field name="state"/>
+                        <field name="currency_id"/>
+                        <field name="money"/>
+                    </group>
+                    <group>
+                        <field name="image_sub" widget="image"/>
+                        <field name="numbers_student"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!--Tree view-->
+    <record id="subject_view_tree" model="ir.ui.view">
+        <field name="name">Tree list subjects</field>
+        <field name="model">subject.m.m</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" optional="show"/>
+                <field name="description" optional="show"/>
+                <field name="date_create" optional="show"/>
+                <field name="author_ids" widget="many2many_tags" optional="show"/>
+                <field name="state" optional="show"/>
+                <field name="money" optional="show"/>
+                <field name="image_sub" widget="image" optional="show"/>
+                <field name="numbers_student" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+    <!--search-->
+    <record id="subject_view_search" model="ir.ui.view">
+        <field name="name">List subject search</field>
+        <field name="model">subject.m.m</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="author_ids"/>
+                <filter string="Without Authors" name="without_author" domain="[('author_ids','=',False)]"/>
+            </search>
+        </field>
+    </record>
+</odoo>

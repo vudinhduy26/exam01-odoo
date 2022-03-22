@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id='action_advanced' model='ir.actions.act_window'>
+        <field name="name">Advanced Sale</field>
+        <field name="res_model">advanced.sale</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Advanced" id="advanced_menu" parent="advanced_sale_base_menu" action="action_advanced"/>
+    <!--Form-->
+    <record id="form_custom" model="ir.ui.view">
+        <field name="name">Form Custom</field>
+        <field name="model">advanced.sale</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="date_order"/>
+                    <field name="validity_date"/>
+                    <field name="order_line"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>
