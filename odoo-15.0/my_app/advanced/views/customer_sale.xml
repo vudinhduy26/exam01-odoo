@@ -7,15 +7,37 @@
     </record>
     <menuitem name="My Sale" id="advanced_sale_base_menu" />
     <menuitem name="Detail" id="advanced_sales_menu" parent="advanced_sale_base_menu" action="action_advanced_sale"/>
-    <!--Inherit the sale order form view-->
-    <record id="view_sale_order_custom" model="ir.ui.view">
-    <field name="name">sale.order.custom.form.inherited</field>
-         <field name="model">sale.order</field>
-         <field name="inherit_id" ref="sale.view_order_form"/>
-         <field name="arch" type="xml">
+    <!--Inherit the sale order form-->
+    <record id="form_sale_order_custom" model="ir.ui.view">
+        <field name="name">sale.order.custom.form.inherited</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <header>
+                <xpath expr="//button[@name='discount_customer']" position="after">
+                    <button string="Check" name="discount_customer" />
+                </xpath>
+            </header>
               <xpath expr="//field[@name='partner_id']" position="after">
                    <field name="customer_discount_code"/>
               </xpath>
-         </field>
+              <xpath expr="//field[@name='customer_discount_code']" position="after">
+                    <field name="discount"/>
+              </xpath>
+              <xpath expr="//field[@name='tax_totals_json']" position="after">
+                    <field name="Sale_order_discount_estimated"/>
+              </xpath>
+        </field>
+    </record>
+    <!--Inherit the sale order view-->
+    <record id="view_sale_order_custom" model="ir.ui.view">
+        <field name="name">sale.order.custom.view.inherited</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+              <xpath expr="//field[@name='partner_id']" position="after">
+                   <field name="customer_discount_code"/>
+              </xpath>
+        </field>
     </record>
 </odoo>
