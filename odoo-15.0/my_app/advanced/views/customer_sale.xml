@@ -3,7 +3,7 @@
     <record id='action_advanced_sale' model='ir.actions.act_window'>
         <field name="name">Advanced Sale</field>
         <field name="res_model">sale.order</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
     <menuitem name="My Sale" id="advanced_sale_base_menu" />
     <menuitem name="Detail" id="advanced_sales_menu" parent="advanced_sale_base_menu" action="action_advanced_sale"/>
@@ -22,11 +22,11 @@
                    <field name="customer_discount_code"/>
               </xpath>
               <xpath expr="//field[@name='customer_discount_code']" position="after">
-                    <field name="discount"/>
+                    <field name="discounttat"/>
               </xpath>
-              <xpath expr="//field[@name='tax_totals_json']" position="after">
-                    <field name="Sale_order_discount_estimated"/>
-              </xpath>
+             <xpath expr="//field[@name='tax_totals_json']" position="after">
+                 <field name="show_discount_total" class="o_form_label"/>
+             </xpath>
         </field>
     </record>
     <!--Inherit the sale order view-->
@@ -37,6 +37,12 @@
         <field name="arch" type="xml">
               <xpath expr="//field[@name='partner_id']" position="after">
                    <field name="customer_discount_code"/>
+              </xpath>
+              <xpath expr="//field[@name='amount_total']" position="replace">
+                    <field name="Sale_order_discount_estimated" sum="Total Discount Last Included" widget="monetary" decoration-bf="1"/>
+              </xpath>
+              <xpath expr="//field[@name='Sale_order_discount_estimated']" position="before">
+                   <field name="show_discount_total" sum="Total Discount"/>
               </xpath>
         </field>
     </record>
