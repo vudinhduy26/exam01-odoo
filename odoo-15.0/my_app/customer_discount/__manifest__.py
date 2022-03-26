@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Advanced_sale",
+    'name': "customer_discount",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
         subtitle on modules listing or apps.openerp.com""",
 
     'description': """
-        Advanced Sale
+        BT 01
     """,
 
     'author': "My Company",
@@ -20,16 +20,15 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'sale', 'product'],
+    'depends': ['base', 'sale'],
 
     # always loaded
     'data': [
+        'security/security.xml',
         'security/ir.model.access.csv',
-        #'views/views.xml',
-        'views/advanced_sale.xml',
+        'views/nguoi_dung.xml',
+        'views/khuyenmai_kethua.xml',
     ],
-    'installable': True,
-    'application': True,
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',

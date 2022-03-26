@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-advanced_sale,advanced_salee,model_advanced_sale_db,,1,1,1,1

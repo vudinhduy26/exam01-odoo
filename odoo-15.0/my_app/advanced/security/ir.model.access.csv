@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_advanced_advanced,advanced.advanced,model_sale_order,advanced_sale_group_discount,1,1,1,1
-advanced01,adavanced_01,model_res_partner,advanced_sale_group_discount,1,1,1,1
-advanced02,advanced_02,model_product_product_db,,1,1,1,1
