@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_customer_discount_customer_discount_partner_sp,customer_discount.customer_discount_partner_sp,model_sale_order,advance_sales,1,1,1,1
 access_customer_discount_customer_discount_partner,customer_discount.customer_discount_partner,model_res_partner,advance_sales,1,1,1,1
+access_wizard,customer_discount.access_wizards,model_order_discount_wizard,advance_sales,1,1,1,1

@@ -26,8 +26,10 @@
             <field name="arch" type="xml">
                 <xpath expr="/tree/field[@name='email']" position="after">
                     <field name="customer_discount_code" groups="customer_discount.advance_sales"/>
-                    <field name="sale_order_discount_estimated" groups="customer_discount.advance_sales" readonly="1"
-                           force_save="1"/>
+                </xpath>
+                <xpath expr="/tree/field[@name='customer_discount_code']" position="after">
+                    <!--                    <field name="sale_order_discount_estimated" groups="customer_discount.advance_sales" readonly="1"-->
+                    <!--                           force_save="1"/>-->
                 </xpath>
             </field>
         </record>
@@ -45,7 +47,7 @@
             </field>
         </record>
 
-
+        <!--action-->
         <record id="action_customer_valid" model="ir.actions.act_window">
             <field name="name">Special customer</field>
             <field name="type">ir.actions.act_window</field>

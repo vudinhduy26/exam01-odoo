@@ -20,14 +20,16 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'sale'],
+    'depends': ['base', 'sale', 'product', 'contacts'],
 
     # always loaded
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
-        'views/nguoi_dung.xml',
-        'views/khuyenmai_kethua.xml',
+        'views/customer_inherit_my.xml',
+        'views/product_inherit_my.xml',
+        'wizard/batch_update.xml',
+        'views/show_my_cart.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

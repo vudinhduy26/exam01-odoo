@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <template id="show_discount_code" name="My product cart">
+            <xpath expr='//tr[@id="order_total_taxes"]' position="after">
+                <tr id="customer_sale_code">
+                    <td>Sale code:</td>
+                    <td>
+                        <span t-field="website_sale_order.partner_id.customer_discount_code"/>
+                    </td>
+                </tr>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

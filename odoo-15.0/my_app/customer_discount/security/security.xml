@@ -4,4 +4,13 @@
         <field name="name">Advanced Sales</field>
     </record>
 
+    <record model="ir.rule" id="advanced_sale_customer">
+        <field name="name">AAA</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="groups" eval="[(4,ref('customer_discount.advance_sales'))]"></field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
 </odoo>
